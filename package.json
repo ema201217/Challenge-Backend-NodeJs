@@ -1,0 +1,25 @@
+{
+  "name": "disney-api",
+  "version": "1.0.0",
+  "description": "Api Rest de Disney",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon src/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ema201217/Challenge-Backend-NodeJs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ema201217/Challenge-Backend-NodeJs/issues"
+  },
+  "homepage": "https://github.com/ema201217/Challenge-Backend-NodeJs#readme",
+  "dependencies": {
+    "express": "^4.17.2",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.13.0",
+    "sequelize-cli": "^6.3.0"
+  }
+}
