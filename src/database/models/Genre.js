@@ -29,18 +29,6 @@ module.exports = function (sequelize, dataTypes) {
         as: "movies",
         foreignKey: "genre_id",
       });
-   /*     Genre.hasMany(models.Image, {
-        as: "images",
-        foreignKey: "GenreId",
-      });
-      Genre.belongsToMany(models.Size, {
-        as: "sizes",
-        through: "Genre_size",
-        foreignKey: "GenreId",
-        otherKey: "sizeId",
-        timestamps: false,
-      }); */
-    
     };
   
     return Genre;

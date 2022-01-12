@@ -1,4 +1,4 @@
-const db = require('../database/models')
+const db = require("../database/models");
 
 const getUrl = (req) => {
   return `${req.protocol}://${req.get("host")}${req.originalUrl}`;
@@ -6,24 +6,33 @@ const getUrl = (req) => {
 
 module.exports = {
   list: async (req, res) => {
-      try {
-        let data =  await db.Movie.findAll({
-            include: ['genre']
-        });
-         res.status(200).json({
-           meta: {
-             endpoint: getUrl(req),
-             status: 200,
-             total: data.length,
-           },
-           data,
-         });
+    try {
+
+      const data = await db.Movie.findAll();
+
+      let arrCharacters = [];
+
+      data.forEach(({ image, title }) => {
+        arrCharacters.push({ image, title });
+      });
+      res.status(200).json({
           
-      } catch (error) {
-          throw {
-              message: error,
-              status: 500
-          }
-      }
+        meta: {
+          endpoint: getUrl(req),
+          status: 200,
+          total: arrCharacters.length,
+        },
+        data: arrCharacters
+
+      });
+    } catch (error) {
+
+      throw {
+        message: error,
+        status: 500,
+      };
+
+    }
+
   },
 };
