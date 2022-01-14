@@ -1,18 +1,37 @@
 const express = require("express");
 const app = express();
 const port = process.env.PORT || 3000;
+const path = require("path");
+require("dotenv").config();
 
-// ENRUTADORES
-const apiRouter = require("./routes/apiRoute");
-const authRouter = require("./routes/authRoute");
+
 
 // Middleware
+app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
+// ENRUTADORES
+const charactersRouter = require("./routes/charactersRoutes");
+const moviesRouter = require("./routes/moviesRoutes");
+
+const authRouter = require("./routes/authRoute");
+
 // RUTAS
-app.use("/api", apiRouter);
 app.use("/auth", authRouter);
+app.use("/api", charactersRouter);
+app.use("/api", moviesRouter);
+
+
+
+// Not found - 404
+app.use("/*", (req, res) => {
+  res.status(404).json({ 
+    status:404,
+    error: "Not found"
+  });
+});
+// ----------------------------------------------------------------
 
 /* SERVER*/
 app.listen(port, () => {

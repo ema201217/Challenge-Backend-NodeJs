@@ -8,11 +8,11 @@ module.exports = function (sequelize, dataTypes) {
         allowNull: false,
       },
       image: {
-        type: dataTypes.STRING(255),
+        type: dataTypes.TEXT,
         allowNull: false,
       },
       title: {
-        type: dataTypes.INTEGER(11),
+        type: dataTypes.STRING(255),
         allowNull: false,
       },
       release_date: {

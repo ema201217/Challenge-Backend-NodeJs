@@ -1,5 +1,5 @@
 module.exports = function (sequelize, dataTypes) {
-    let alias = "Genre";
+    let alias = "User";
     let cols = {
       id: {
         type: dataTypes.INTEGER(11),
@@ -7,28 +7,20 @@ module.exports = function (sequelize, dataTypes) {
         autoIncrement: true,
         allowNull: false,
       },
-      name: {
+      email: {
         type: dataTypes.STRING(255),
       },
-      image: {
+      pass: {
         type: dataTypes.STRING(255),
-      },
+      }    
     };
     let config = {
-      tableName: "genres",
+      tableName: "users",
       timestamps: false,
     };
   
-    const Genre = sequelize.define(alias, cols, config);
+    const User = sequelize.define(alias, cols, config);
   
-    /* Associations */
-    Genre.associate = (models) => {
-     Genre.hasMany(models.Movie, {
-        as: "movies",
-        foreignKey: "genre_id",
-      });
-    };
-  
-    return Genre;
+    return User;
   };
   

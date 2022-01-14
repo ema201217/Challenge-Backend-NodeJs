@@ -13,11 +13,15 @@ module.exports = function (sequelize, dataTypes) {
       },
       age: {
         type: dataTypes.INTEGER(11),
-        allowNull: false,
       },
       history: {
-        type: dataTypes.STRING(255),
-        allowNull: false,
+        type: dataTypes.TEXT,
+      },
+      weight: {
+        type: dataTypes.INTEGER(11),
+      },
+      image: {
+        type: dataTypes.TEXT,
       }
     
     };
