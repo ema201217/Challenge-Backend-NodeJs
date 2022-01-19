@@ -1,7 +1,7 @@
 const db = require("../database/models");
 const bc = require("bcrypt");
-const sgMail = require("@sendgrid/mail");
 const tk = require("jsonwebtoken");
+const {transporter} = require('../services/sendEmail')
 const { validationResult } = require("express-validator");
 
 const getUrl = (req) => {
@@ -76,33 +76,17 @@ module.exports = {
           data: user,
         });
 
-        const nodemailer = require("nodemailer");
-
-        async function main() {
-        
-          const transporter = nodemailer.createTransport({
-            host: 'smtp.ethereal.email',
-            port: 587,
-            auth: {
-                user: 'jacinto.leannon29@ethereal.email',
-                pass: 'J8yxsEAjxadBK8HuQ7'
-            }
+       await transporter.sendMail({
+          from: '<ema201217@gmail.com>', 
+          to: email, 
+          subject: "Registración exitosa",
+          html: `
+          <div>
+            <h1>Bienvenido a la API de Disney</h1>
+          </div>
+          <img src='https://www.curralia.es/wp-content/uploads/2021/02/Disney-foto.jpg' alt='Disney'>
+          `
         });
-        
-          let info = await transporter.sendMail({
-            from: 'Emanuel Arroyo <emanuelarroyodev@gmail.com>',
-            to: email, 
-            subject: "✔", 
-            text: "Bienvenido a la API de Disney", 
-            html: "<b>Api de Disney</b>", 
-          });
-        }
-        
-        main().catch(console.error);
-
-
-
-
       }
     } catch (error) {
       console.log(`%c ${error}`, "background: #222; color: #bada55");
