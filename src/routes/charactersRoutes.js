@@ -10,34 +10,30 @@ const checkParams = require("../middlewares/checkParams"); // Chequea si es vali
 
 // Character Controller
 const {
-  list,
+  listAndQueries,
   detail,
   create,
   update,
   remove,
-  search,
 } = require("../controllers/charactersController");
 
 // charactersAll
-router.get("/characters", list);
-router.get("/character/:id", checkParams, detail);
-
-// Querys
-router.get("/characters", search);
+router.get("/characters", checkToken, listAndQueries);
+router.get("/character/:id", checkToken, checkParams, detail);
 
 // characterCreate
-router.post("/character/create", characterCreateValidation, checkToken, create);
+router.post("/character/create", checkToken, characterCreateValidation, create);
 
 // characterUpdate
 router.put(
   "/character/update/:id",
+  checkToken,
   checkParams,
   characterUpdateValidation,
-  checkToken,
   update
 );
 
 // characterDelete
-router.delete("/character/delete/:id", checkParams, checkToken, remove);
+router.delete("/character/delete/:id", checkToken, checkParams, remove);
 
 module.exports = router;

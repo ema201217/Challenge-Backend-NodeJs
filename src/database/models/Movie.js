@@ -17,15 +17,13 @@ module.exports = function (sequelize, dataTypes) {
       },
       release_date: {
         type: dataTypes.DATE,
-        allowNull: false,
       },
       qualify: {
         type: dataTypes.INTEGER(11),
-        allowNull: false,
+        
       },
       genre_id: {
         type: dataTypes.INTEGER(11),
-        allowNull: false,
       },
     
     };

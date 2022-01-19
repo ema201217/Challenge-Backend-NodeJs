@@ -1,6 +1,6 @@
 const db = require("../database/models");
 const bc = require("bcrypt");
-
+const sgMail = require("@sendgrid/mail");
 const tk = require("jsonwebtoken");
 const { validationResult } = require("express-validator");
 
@@ -42,6 +42,8 @@ module.exports = {
   },
 
   register: async (req, res) => {
+    
+
     try {
       const { email, pass } = req.body;
 
@@ -73,6 +75,34 @@ module.exports = {
           },
           data: user,
         });
+
+        const nodemailer = require("nodemailer");
+
+        async function main() {
+        
+          const transporter = nodemailer.createTransport({
+            host: 'smtp.ethereal.email',
+            port: 587,
+            auth: {
+                user: 'jacinto.leannon29@ethereal.email',
+                pass: 'J8yxsEAjxadBK8HuQ7'
+            }
+        });
+        
+          let info = await transporter.sendMail({
+            from: 'Emanuel Arroyo <emanuelarroyodev@gmail.com>',
+            to: email, 
+            subject: "✔", 
+            text: "Bienvenido a la API de Disney", 
+            html: "<b>Api de Disney</b>", 
+          });
+        }
+        
+        main().catch(console.error);
+
+
+
+
       }
     } catch (error) {
       console.log(`%c ${error}`, "background: #222; color: #bada55");
