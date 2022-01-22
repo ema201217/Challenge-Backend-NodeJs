@@ -123,7 +123,7 @@ CREATE TABLE `movies` (
 
 LOCK TABLES `movies` WRITE;
 /*!40000 ALTER TABLE `movies` DISABLE KEYS */;
-INSERT INTO `movies` VALUES (1,'https://unopeliculas.com/pinel/images/productosv2/54544.jpg','El maravilloso mundo de Mickey Mouse','2020-11-14',3,1),(2,'https://unopeliculas.com/pinel/images/productosv1/26748.jpg','Mickey y los Superpilotos','2017-12-14',2,2),(3,'https://unopeliculas.com/pinel/images/productosv1/37390.jpg','Mickey Mouse: Acampando','2016-02-10',4,2),(4,'https://pics.filmaffinity.com/the_lion_king-983881776-mmed.jpg','El rey león','1994-02-10',2,1),(5,'https://pics.filmaffinity.com/the_lion_king_ii_simba_s_pride-369770418-mmed.jpg','El rey león 2: El tesoro de Simba','1998-06-07',5,2),(7,'https://tentulogo.com/wp-content/uploads/2017/09/disney-logo.jpg','','0000-00-00',NULL,2),(14,'https://tentulogo.com/wp-content/uploads/2017/09/disney-logo.jpg','','0000-00-00',NULL,1),(15,'https://tentulogo.com/wp-content/uploads/2017/09/disney-logo.jpg','dasdasdas','2020-06-21',NULL,2),(16,'https://tentulogo.com/wp-content/uploads/2017/09/disney-logo.jpg','sdadsddddd','2000-01-01',NULL,2),(17,'https://tentulogo.com/wp-content/uploads/2017/09/disney-logo.jpg','rerdsd','2000-01-01',NULL,2),(21,'https://tentulogo.com/wp-content/uploads/2017/09/disney-logo.jpg','sdsds','2012-11-22',NULL,2),(22,'https://tentulogo.com/wp-content/uploads/2017/09/disney-logo.jpg','title','2022-03-30',NULL,1),(24,'https://www.todofondos.net/wp-content/uploads/todofondos-disney7-768x480.jpg','disney','2022-03-30',5,2);
+INSERT INTO `movies` VALUES (1,'https://unopeliculas.com/pinel/images/productosv2/54544.jpg','El maravilloso mundo de Mickey Mouse','2020-11-14',3,1),(2,'https://unopeliculas.com/pinel/images/productosv1/26748.jpg','Mickey y los Superpilotos','2017-12-14',2,2),(3,'https://unopeliculas.com/pinel/images/productosv1/37390.jpg','Mickey Mouse: Acampando','2016-02-10',4,2),(4,'https://pics.filmaffinity.com/the_lion_king-983881776-mmed.jpg','El rey león','1994-02-10',2,1),(5,'https://pics.filmaffinity.com/the_lion_king_ii_simba_s_pride-369770418-mmed.jpg','El rey león 2: El tesoro de Simba','1998-06-07',5,2);
 /*!40000 ALTER TABLE `movies` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -165,4 +165,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-01-19 19:49:29
+-- Dump completed on 2022-01-22  7:33:57

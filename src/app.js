@@ -7,14 +7,12 @@ require("dotenv").config();
 
 
 // Middleware
-app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 // ENRUTADORES
 const charactersRouter = require("./routes/charactersRoutes");
 const moviesRouter = require("./routes/moviesRoutes");
-
 const authRouter = require("./routes/authRoute");
 
 // RUTAS
