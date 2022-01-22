@@ -21,7 +21,7 @@
 
 ## Validaciones 📋
 
-<img src="/git/2.png" alt="VALIDACIONES">
+<img src="/git/2.gif" alt="VALIDACIONES">
 
 ----------------
 
