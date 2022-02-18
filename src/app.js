@@ -1,14 +1,14 @@
+require("dotenv").config();
+
 const express = require("express");
 const app = express();
 const port = process.env.PORT || 3000;
-const path = require("path");
-require("dotenv").config();
-
-
+const cors = require("cors")
 
 // Middleware
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+app.use(cors())
 
 // ENRUTADORES
 const charactersRouter = require("./routes/charactersRoutes");
@@ -19,8 +19,6 @@ const authRouter = require("./routes/authRoute");
 app.use("/auth", authRouter);
 app.use("/api", charactersRouter);
 app.use("/api", moviesRouter);
-
-
 
 // Not found - 404
 app.use("/*", (req, res) => {

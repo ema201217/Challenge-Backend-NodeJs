@@ -1,7 +1,7 @@
 const db = require("../database/models");
 const bc = require("bcrypt");
 const tk = require("jsonwebtoken");
-const {transporter} = require('../services/sendEmail')
+const { transporter } = require("../services/sendEmail");
 const { validationResult } = require("express-validator");
 
 const getUrl = (req) => {
@@ -26,13 +26,13 @@ module.exports = {
     // Buscamos el usuario en nuestra base de datos
     const user = await db.User.findOne({ where: { email: req.body.email } });
 
-    // Creamos el token si esta todo bien indicando como primer parametro un objeto con informacion del usuario y segundo parametro el TOKEN SECRETO
+    // Creamos el token si esta todo bien indicando como primer parámetro un objeto con información del usuario y segundo parametro el TOKEN SECRETO
     const token = await tk.sign(
       { user: user.email, id: user.id },
       process.env.TOKEN_SECRET
     );
 
-    // Enviamos por la cabezera la key = auth-token y el token crado
+    // Enviamos por la cabecera la key = auth-token y el token creado
     // Luego tambien enviamos como respuesta un json con las propiedades indicadas abajo.
     return res.header("auth-token", token).json({
       error: null,
@@ -42,9 +42,8 @@ module.exports = {
   },
 
   register: async (req, res) => {
-    
-
     try {
+      
       const { email, pass } = req.body;
 
       const errors = validationResult(req);
@@ -76,16 +75,16 @@ module.exports = {
           data: user,
         });
 
-       await transporter.sendMail({
-          from: '<ema201217@gmail.com>', 
-          to: email, 
+        await transporter.sendMail({
+          from: "<ema201217@gmail.com>",
+          to: email,
           subject: "Registración exitosa",
           html: `
           <div>
             <h1>Bienvenido a la API de Disney</h1>
           </div>
           <img src='https://www.curralia.es/wp-content/uploads/2021/02/Disney-foto.jpg' alt='Disney'>
-          `
+          `,
         });
       }
     } catch (error) {

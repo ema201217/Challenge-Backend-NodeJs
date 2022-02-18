@@ -10,7 +10,7 @@ module.exports = [
     .isEmail()
     .withMessage("Email invalid")
     .bail()
-    .custom(async (value) => {
+    .custom(async (value,{req}) => {
       const email = await db.User.findOne({ where: { email: value } });
       return !email && Promise.reject("User not found");
     }),
